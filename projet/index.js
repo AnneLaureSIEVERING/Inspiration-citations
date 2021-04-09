@@ -1,45 +1,49 @@
-let citation = document.querySelector('#citation');
-let author = document.querySelector('#auteur');
-let button = document.querySelector('#nouveau');
+let quote = document.querySelector('#quote');
+let author = document.querySelector('#author');
+let button = document.querySelector('#new-quote');
 
-let dernier = 0;
-let nombreAleatoire = 0;
-let citations = [
+let latest = 0;
+let randomNumber = 0;
+let quoteList = [
   ["La vie est un mystère qu'il faut vivre, et non un problème à résoudre.", "Gandhi"],
   ["Le plus grand risque est de ne prendre aucun risque.", "Mark Zuckerberg"],
-  ["Méritez votre statut de leader chaque jour.", "Mickael Jordan"],
-  ["Soyez le changement que vous voulez voir dans le monde.", "Gandhi"],
-  ["A chaque fois que vous vous retrouvez du même côté que la majorité, il est temps de prendre du recul, et de réfléchir.", "Mark Twain"],
+  ["La première étape consiste à se convaincre que quelque chose est possible, alors il y aura plus de probabilités que cela arrive.", "Elon Musk"],
+  ["Tout le monde devrait faire ce que son cœur lui dicte.", "Mickael Jackson"],
   ["Seulement ceux qui prendront le risque d’aller trop loin découvriront jusqu’où on peut aller.", "T.S Elliot"],
-  ["Le succès c’est tomber sept fois, se relever huit.", "Proverbe japonais"],
   ["Dans vingt ans vous serez plus déçus par les choses que vous n’avez pas faites que par celles que vous avez faites. Alors sortez des sentiers battus. Mettez les voiles. Explorez. Rêvez. Découvrez.", "Mark Twain"],
-  ["Si vous attendez pour agir, tout ce que vous gagnerez, avec le temps, c’est de l’âge.", "Brian Tracy"],
-  ["Quand on concentre son attention sur un seul projet, l’esprit suggère constamment des idées et des améliorations qui lui échapperaient s’il était occupé avec plusieurs projets en même temps.", "P.T. Barnum"],
-  ["Se dédier à faire tout ce que l’on peut pour aider les autres à obtenir ce qu’ils veulent, c’est la clé du succès.", "Brian Sher"],
-  ["Si vous pensez que vous êtes trop petit pour avoir de l’impact, essayez d’aller au lit avec un moustique.", "Anita Roddick"],
-  ["Ne jugez pas chaque jour sur ce que vous récoltez, mais sur les graines que vous semez.", "Robert Louis Stevenson"],
   ["L’action est la clé fondamentale de tout succès.", "Pablo Picasso"],
-  ["Le succès, c’est se promener d’échecs en échecs tout en restant motivé.", "Winston Churchill"],
-  ["Votre avenir est créé par ce que vous faîtes aujourd’hui, pas demain.", "Robert T. Kiyosaki"],
-  ["Ne vous découragez pas, c’est souvent la dernière clef du trousseau qui ouvre la porte.", "Zig Ziglar"],
-  ["Pour gagner votre vie, apprenez à l’école. Pour gagner une fortune, apprenez par vous-même.", "Brian Tracy"],
   ["Les gagnants trouvent des moyens, les perdants des excuses…", "F. D. Roosevelt"],
   ["Vous n’êtes jamais trop vieux pour vous fixer de nouveaux buts, ou rendre vos rêves réalité.", "C.S. Lewis"],
-  ["Un pessimiste voit la difficulté dans chaque opportunité. Un optimiste voit une opportunité dans chaque difficulté.", "Winston Churchill"]
+  ["Il est dur d'échouer; Mais il est pire de n'avoir jamais tenté de réussir.", "Franklin Delano Roosevelt"],
+  ["Gardez toujours à l'esprit que votre propre décision de réussir est plus importante que n'importe quoi d'autre.", "Abraham Lincoln"],
+  ["Pour réussir, retenez bien ces trois maximes : voir c'est savoir, vouloir c'est pouvoir, oser c'est voir.", "Alfred de Musset"],
+  ["Chaque bonne réalisation, grande ou petite, connait ses périodes de corvées et de triomphes; un début, un combat et une victoire.", "Gandhi"],
+  ["Il ne faut pas penser à l'objectif à atteindre, il faut seulement penser à avancer. C'est ainsi, à force d'avancer, qu'on atteint ou qu'on double ses objectifs sans même s'en apercevoir.", "Bernard Werber"],
+  ["Le commencement est beaucoup plus que la moitié de l'objectif.", "Aristote"],
+  ["Il faut tendre vers l'impossible: les grands exploits à travers l'histoire ont été la conquête de ce qui semblait impossible.", "Charlie Chaplin"],
+  ["Il y a bien des manières de ne pas réussir, mais la plus sûre est de ne jamais prendre de risques.", "Benjamin Franklin"],
+  ["Le plus difficile est de se décider à agir, le reste n'est que de la ténacité.", "Amélia Earhart"],
+  ["Le plus grand échec est de ne pas avoir le courage d'oser.", "l'Abbé Pierre"],
+  ["Croyez en vos rêves et ils se réaliseront peut-être. Croyez en vous et ils se réaliseront sûrement.", "Martin Luther King"],
+  ["Faites ce que vous pouvez, là où vous êtes, avec ce que vous avez.", "Teddy Roosevelt"],
+  ["Je recrute des hommes capables d'ignorer la phrase 'ce n'est pas possible'.", "Steve Jobs"],
+  ["Dans un moment de décision, la meilleure chose à faire est de prendre la bonne. La pire, de n'en prendre aucune.", "Colin Powell"],
+  ["Une fourmi qui avance en fait plus qu'un boeuf qui dors.", "Lao Tseu"],
+  ["La chute n'est pas un échec. L'échec c'est de rester là où on est tombé.", "Socrate"]
 ];
 
-function genererNombreEntier(max) {
+function choiceNumber(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
 button.addEventListener('click', () => {
   do {
-    nombreAleatoire = genererNombreEntier(citations.length);
-  } while (nombreAleatoire == dernier)
+    randomNumber = choiceNumber(quoteList.length);
+  } while (randomNumber == latest)
     
-  citation.textContent = citations[nombreAleatoire][0];
-  auteur.textContent   = citations[nombreAleatoire][1];
-  dernier              = nombreAleatoire;
+  quote.textContent = quoteList[randomNumber][0];
+  author.textContent= quoteList[randomNumber][1];
+  latest            = randomNumber;
 });
 
 
